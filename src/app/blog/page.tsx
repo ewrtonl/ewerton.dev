@@ -1,5 +1,7 @@
 import { getPosts } from "../_services/notion";
 
+export const fetchCache = 'force-no-store';
+
 export async function generateStaticParams() {
   const posts = await getPosts();
   return posts.map((post) => ({
@@ -7,7 +9,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export const revalidate = 5;
+export const revalidate = 1;
 
 export default async function BlogHome() {
   const posts = await getPosts();
