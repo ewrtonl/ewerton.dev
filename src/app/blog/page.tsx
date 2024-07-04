@@ -7,7 +7,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export const revalidate = 10;
+export const revalidate = 5;
 
 export default async function BlogHome() {
   const posts = await getPosts();
