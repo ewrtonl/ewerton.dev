@@ -1,8 +1,12 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <p>Home</p>
+    <main className="font-sans">
+      <p>Home</p>
+      <Link href="/blog">
+        <p>Blog</p>
+      </Link>
+    </main>
   );
 }

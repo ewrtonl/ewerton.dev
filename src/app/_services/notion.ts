@@ -27,6 +27,7 @@ export async function getPosts() {
     return {
       id: post.id,
       title: post.properties.title.title[0].plain_text,
+      description: post.properties.description.rich_text[0]?.plain_text,
       slug: post.properties.slug.rich_text[0].plain_text,
       tags: post.properties.tags.multi_select.map((tag) => tag.name),
       createdAt: post.created_time,
