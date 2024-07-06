@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="font-sans">
+    <main>
       <p>Home</p>
       <Link href="/blog">
         <p>Blog</p>

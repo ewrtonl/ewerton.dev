@@ -1,35 +1,32 @@
 import { getPosts } from "../_services/notion";
+import { GeistSans } from "geist/font/sans";
+import styles from "./page.module.css";
 
 export default async function BlogHome() {
   const posts = await getPosts();
   return (
-    <div className="font-sans">
-      <h1>Blog</h1>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id} className="mb-5">
+    <div className={[GeistSans.className, styles.articlesBox].join(' ')}>
+      <div>
+        <h1>Writing</h1>
+        <ul>
+          {posts.map((post) => (
+            <li key={post.id}>
+              <a href={`/blog/${post.slug}`}>
+                <h3>{post.title}</h3>
 
-            <a href={`/blog/${post.slug}`} className="text-lg underline">{post.title}</a>
+                <p>{post.description}</p>
 
-            <p className="text-sm">{post.description}</p>
-
-            <div className="space-x-2">
-              {post.tags.map((tag) => (
-                <span key={tag} className="text-sm text-slate-400">
-                  #{tag}
-                </span>
-              ))}
-            </div>
-
-            <p className="text-sm">
-              {new Intl.DateTimeFormat("en-US", {
-                dateStyle: "full",
-                timeZone: "America/Sao_Paulo",
-              }).format(new Date(post.createdAt))}
-            </p>
-          </li>
-        ))}
-      </ul>
+                <p>
+                  {new Intl.DateTimeFormat("en-US", {
+                    dateStyle: "long",
+                    timeZone: "America/Sao_Paulo",
+                  }).format(new Date(post.createdAt))}
+                </p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
