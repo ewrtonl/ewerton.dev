@@ -1,0 +1,63 @@
+.home {
+  width: 100%;
+}
+
+.home nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid #e9e9e9;
+
+  padding: 0 20px;
+}
+
+.menuLink {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profileInfo p:nth-child(1) {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.profileInfo p:nth-child(2) {
+  color: #6b6b6b;
+  margin-top: -16px;
+  font-size: 15px;
+}
+
+.menu {
+  display: flex;
+  gap: 25px;
+}
+
+.aboutMe {
+  padding: 40px;
+  text-align: justify;
+  line-height: 2;
+
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.recentArt {
+  background-color: rgba(255, 255, 255, 1);
+  background-image: linear-gradient(90deg, #80808012 1px, transparent 0),
+    linear-gradient(180deg, #80808012 1px, transparent 0);
+  background-size: 24px 24px;
+
+  padding: 40px;
+}
+
+.recentArt h2 {
+    margin: 0;
+    letter-spacing: -0.7px;
+}

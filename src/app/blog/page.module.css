@@ -1,9 +1,25 @@
 .articlesBox {
-  display: grid;
-  place-items: center;
-  height: 95vh;
+  background-image: radial-gradient(#e5e7eb 1px, transparent 0);
+  background-size: 16px 16px;
+
+  width: 100%;
+  height: 100vh;
+
+  padding: 22px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.articlesBox div:nth-child(1) {
+  padding: 0 20px 20px 20px;
 
   overflow: auto;
+  height: 93vh;
+
+  background-color: #fafafa;
+  width: fit-content;
+  border-radius: 15px;
 }
 
 .articlesBox ul {
@@ -11,12 +27,12 @@
 
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 
 .articlesBox li {
   list-style: none;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ebebeb;
   padding: 0 15px;
 }
 

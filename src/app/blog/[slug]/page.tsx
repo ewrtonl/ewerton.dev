@@ -1,6 +1,7 @@
 import { getPost } from "@/app/_services/notion";
 import ReactMarkdown from "react-markdown";
 import { GeistSans } from "geist/font/sans";
+import styles from "./page.module.css";
 
 export default async function BlogPost({
   params,
@@ -10,7 +11,7 @@ export default async function BlogPost({
   const post = await getPost(params.slug);
 
   return (
-    <div className={GeistSans.className}>
+    <div className={[GeistSans.className, styles.post].join(" ")}>
         <h1>{post.title}</h1>
       <ReactMarkdown>{post.content}</ReactMarkdown>
     </div>
