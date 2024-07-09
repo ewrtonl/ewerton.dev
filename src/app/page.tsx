@@ -1,20 +1,18 @@
 import Link from "next/link";
-import Image from "next/image";
 import { GeistSans } from "geist/font/sans";
 import styles from "./page.module.css";
-import crow from "./assets/raven.svg";
+import { At } from "@phosphor-icons/react/dist/ssr";
+import { getPosts } from "./_services/notion";
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getPosts();
+  const recentPosts = posts.slice(0, 3);
+
   return (
     <main className={[GeistSans.className, styles.home].join(" ")}>
       <nav>
         <div className={styles.profile}>
-          <Image
-            src={crow}
-            alt="Picture of the author"
-            width={30}
-            height={30}
-          />
+          <At size={34} />
           <div className={styles.profileInfo}>
             <p>Ewerton Luís</p>
             <p>Software Developer</p>
@@ -52,8 +50,28 @@ export default function Home() {
       </section>
 
       <section className={styles.recentArt}>
-        <h2>Recent Writing</h2>
+        <h2>Latest Articles</h2>
+
+        <div>
+          <ul>
+            {recentPosts.map((post) => (
+              <li key={post.id}>
+                <a href={`/blog/${post.slug}`}>
+                  <h3>{post.title}</h3>
+                  <p>
+                    {new Intl.DateTimeFormat("en-US", {
+                      dateStyle: "long",
+                      timeZone: "America/Sao_Paulo",
+                    }).format(new Date(post.createdAt))}
+                  </p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </main>
   );
 }
+
+export const dynamic = "force-dynamic";
