@@ -68,7 +68,9 @@ export default async function Home() {
 
                   <div className={styles.recentArtTags}>
                     {post.tags.map((tag) => (
-                      <span>{tag}</span>
+                      <span key={tag}>
+                        {tag}
+                      </span>
                     ))}
                   </div>
                 </a>
@@ -77,7 +79,7 @@ export default async function Home() {
           </ul>
         </div>
 
-        <Link href="/blog" >
+        <Link href="/blog">
           <div className={styles.smBtn}>
             <p>See More</p>
             <ArrowRight size={20} />
