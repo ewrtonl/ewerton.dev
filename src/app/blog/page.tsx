@@ -1,13 +1,17 @@
 import { getPosts } from "../_services/notion";
 import { GeistSans } from "geist/font/sans";
 import styles from "./page.module.css";
+import Link from "next/link";
+import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 
 export default async function BlogHome() {
   const posts = await getPosts();
   return (
-    <div className={[GeistSans.className, styles.articlesBox].join(' ')}>
+    <div className={[GeistSans.className, styles.articlesBox].join(" ")}>
       <div>
-        <h1>Writing</h1>
+        <Link href="/" className={styles.menuLink}>
+        <ArrowLeft size={25} />
+        </Link>
         <ul>
           {posts.map((post) => (
             <li key={post.id}>

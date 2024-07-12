@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { GeistSans } from "geist/font/sans";
 import styles from "./page.module.css";
-import { At } from "@phosphor-icons/react/dist/ssr";
+import { At, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { getPosts } from "./_services/notion";
 
 export default async function Home() {
@@ -58,17 +58,31 @@ export default async function Home() {
               <li key={post.id}>
                 <a href={`/blog/${post.slug}`}>
                   <h3>{post.title}</h3>
+
                   <p>
                     {new Intl.DateTimeFormat("en-US", {
                       dateStyle: "long",
                       timeZone: "America/Sao_Paulo",
                     }).format(new Date(post.createdAt))}
                   </p>
+
+                  <div className={styles.recentArtTags}>
+                    {post.tags.map((tag) => (
+                      <span>{tag}</span>
+                    ))}
+                  </div>
                 </a>
               </li>
             ))}
           </ul>
         </div>
+
+        <Link href="/blog" >
+          <div className={styles.smBtn}>
+            <p>See More</p>
+            <ArrowRight size={20} />
+          </div>
+        </Link>
       </section>
     </main>
   );

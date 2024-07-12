@@ -12,14 +12,16 @@
 }
 
 .articlesBox div:nth-child(1) {
-  padding: 0 20px 20px 20px;
+  padding: 15px;
 
   overflow: auto;
   height: 93vh;
 
-  background-color: #fafafa;
+  background-color: #fff;
   width: fit-content;
   border-radius: 15px;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 
 .articlesBox ul {
@@ -27,13 +29,12 @@
 
   display: flex;
   flex-direction: column;
-  gap: 5px;
 }
 
 .articlesBox li {
   list-style: none;
-  border-bottom: 1px solid #ebebeb;
-  padding: 0 15px;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 15px 20px 10px 10px;
 }
 
 .articlesBox a {
@@ -48,16 +49,21 @@
 
 .articlesBox h3 {
   letter-spacing: -0.02rem;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 22px;
+
+  margin: 0;
 }
 
 .articlesBox p:nth-child(2) {
-  font-size: 15px;
-  color: #2b2b2b;
-  margin-top: -15px;
+  font-size: 13px;
+  color: #505050;
+  margin: 5px 0 0 0;
+  font-style: italic;
 }
 
 .articlesBox p:nth-child(3) {
   font-size: 13px;
-  color: #747474;
+  color: #979797;
+  margin: 20px 0 0 0;
 }
