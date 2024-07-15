@@ -3,6 +3,7 @@
 import { Client } from "@notionhq/client";
 import { NotionDatabaseResponse } from "../_types/notion";
 import { NotionToMarkdown } from "notion-to-md";
+import { create } from "domain";
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
@@ -64,5 +65,6 @@ export async function getPost(slug: string) {
   return {
     title: typedResponse.results[0].properties.title.title[0].plain_text,
     content: mdString.parent,
+    createdAt: typedResponse.results[0].created_time,
   };
 }
