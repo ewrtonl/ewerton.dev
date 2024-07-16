@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { GeistSans } from "geist/font/sans";
 import styles from "./page.module.css";
-import { At, ArrowRight } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { getPosts } from "./_services/notion";
+import Nav from "./components/Nav/nav";
 
 export default async function Home() {
   const posts = await getPosts();
@@ -10,27 +11,8 @@ export default async function Home() {
 
   return (
     <main className={[GeistSans.className, styles.home].join(" ")}>
-      <nav>
-        <div className={styles.profile}>
-          <At size={34} />
-          <div className={styles.profileInfo}>
-            <p>Ewerton Luís</p>
-            <p>Software Developer</p>
-          </div>
-        </div>
 
-        <div className={styles.menu}>
-          <Link href="/" className={styles.menuLink}>
-            <p>Home</p>
-          </Link>
-          <Link href="/blog" className={styles.menuLink}>
-            <p>Writing</p>
-          </Link>
-          <Link href="/" className={styles.menuLink}>
-            <p>Socials</p>
-          </Link>
-        </div>
-      </nav>
+      <Nav />
 
       <section className={styles.aboutMe}>
         <p>

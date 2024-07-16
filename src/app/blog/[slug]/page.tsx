@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import { GeistSans } from "geist/font/sans";
 import styles from "./page.module.css";
 import PrismLoader from "@/app/components/prism-loader";
+import Nav from "@/app/components/Nav/nav";
 
 export default async function BlogPost({
   params,
@@ -13,6 +14,7 @@ export default async function BlogPost({
 
   return (
     <div className={[GeistSans.className, styles.post].join(" ")}>
+      <Nav />
       <h1>{post.title}</h1>
       <span>
         {new Intl.DateTimeFormat("en-US", {
